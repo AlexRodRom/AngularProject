@@ -1,6 +1,6 @@
-export interface TicketObject {
+export interface ProductObject {
     _id?: object;
-    bbgId: number;
+    id: number;
     date: Date;
     detalle1: string;
     detalle2: string;

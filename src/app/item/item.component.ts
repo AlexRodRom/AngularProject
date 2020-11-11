@@ -1,6 +1,6 @@
-import { TicketObject } from './../ticket-object';
+import { ProductObject } from './../product-object';
 import { Component, Input, OnInit } from '@angular/core';
-import { TicketService } from '../ticket.service';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-item',
@@ -9,38 +9,38 @@ import { TicketService } from '../ticket.service';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() ticket: TicketObject;
+  @Input() product: ProductObject;
 
-  editTicket: boolean;
-  ticketselected: TicketObject;
-  constructor(public ticketServ: TicketService) {  }
+  editProduct: boolean;
+  productselected: ProductObject;
+  constructor(public productServ: ProductService) {  }
 
   ngOnInit(): void {
-    this.editTicket = false;
+    this.editProduct = false;
   }
 
-  deleteTicket(ticket: TicketObject): void{
-    if (confirm('Are you sure to delete ' + ticket.bbgId + '?')) {
-      this.ticketServ.deleteTicket(ticket);
+  deleteProduct(product: ProductObject): void{
+    if (confirm('Are you sure to delete ' + product.id + '?')) {
+      this.productServ.deleteProduct(product);
     }
-  } 
+  }
 
-  updateTicket(ticket: TicketObject, newId: any): void{
-    const updateTicket: TicketObject = {
-      bbgId: Number(newId),
-      date: ticket.date,
+  updateProduct(product: ProductObject, newId: any): void{
+    const updateProduct: ProductObject = {
+      id: Number(newId),
+      date: product.date,
       detalle1: 'Det1-' + newId ,
       detalle2: 'Det2-' + newId,
       detalle3: 'Det3-' + newId
     };
-    this.ticketServ.updateTicket(ticket, updateTicket);
+    this.productServ.updateProduct(product, updateProduct);
   }
 
-  showTicketTools(ticket: TicketObject): void{
-    this.ticketselected = ticket;
+  showProductTools(product: ProductObject): void{
+    this.productselected = product;
   }
 
-  hideTicketTools(ticket: TicketObject): void{
-    this.ticketselected = null;
+  hideProductTools(product: ProductObject): void{
+    this.productselected = null;
   }
 }

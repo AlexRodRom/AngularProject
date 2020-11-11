@@ -1,31 +1,31 @@
-import { IconComponent } from './../icon/icon.component';
-import { ItemComponent } from './../item/item.component';
-import { TicketObject } from './../ticket-object';
+import { IconComponent } from '../icon/icon.component';
+import { ItemComponent } from '../item/item.component';
+import { ProductObject } from './../product-object';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TicketService } from '../ticket.service';
+import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'app-tickets',
-  templateUrl: './tickets.component.html',
-  styleUrls: ['./tickets.component.scss']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
 })
-export class TicketsComponent implements OnInit {
+export class ProductsComponent implements OnInit {
   color: string;
-  editTicket: TicketObject;
+  editProduct: ProductObject;
 
-  constructor(public ticketServ: TicketService, private rend: Renderer2) {
-    this.editTicket = null;
+  constructor(public productServ: ProductService, private rend: Renderer2) {
+    this.editProduct = null;
   }
 
   ngOnInit(): void {
     this.color = this.colorHEX();
   }
 
-  showTicketDetails(ticket: TicketObject): void{
+  showProductDetails(product: ProductObject): void{
     // alert(`Trade number ${trade.id} has been booked on ${trade.date}.`)
-    // console.log(`Trade number ${ticket.id} has been booked on ${ticket.date}.`);
+    // console.log(`Trade number ${product.id} has been booked on ${product.date}.`);
   }
 
   randomColor(): string{
@@ -47,13 +47,13 @@ export class TicketsComponent implements OnInit {
     }
   }
 
-  addTicket(ticket: TicketObject): void{
-    this.ticketServ.addTickets(ticket);
-    console.log(this.ticketServ.tickets);
+  addProduct(product: ProductObject): void{
+    this.productServ.addProducts(product);
+    console.log(this.productServ.products);
   }
 
-  addNewTicket(): void{
-    this.ticketServ.addTicket();
+  addNewProduct(): void{
+    this.productServ.addProduct();
   }
 
 }
