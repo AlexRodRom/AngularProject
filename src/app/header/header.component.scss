@@ -1,0 +1,27 @@
+:host{
+    width:100%;
+    
+}
+
+$navbuttonColorActive: #1976d2;
+
+.toolbar{
+    z-index: 2;
+    position: fixed;
+    a {
+     color:white;
+    }
+    a.disabled{
+        color:rgb(172, 170, 170);
+    }
+    a.dropdown-item{
+        color:$navbuttonColorActive;
+    }
+    a.nav-link.active{
+        background-color: rgba(153,243,180);
+        color:$navbuttonColorActive;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 2px;
+    }
+}
