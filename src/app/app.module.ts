@@ -14,7 +14,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 import { ProductService } from './product.service';
 import { IconComponent } from './icon/icon.component';
-import { ItemComponent } from './item/item.component';
+import { ProductItemComponent } from './product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { ItemComponent } from './item/item.component';
     Error404Component,
     WelcomeComponent,
     IconComponent,
-    ItemComponent
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
