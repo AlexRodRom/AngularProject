@@ -4,30 +4,6 @@
 
 $lightBackground: #007bff;
 
-span{
-  display: inline-block;
-  font-size: 30px;
-}
-
-input{
-  display: inline-block;
-  font-size: 20px;
-  margin-top: 5px;
-  margin-bottom:5px;
-}
-
-.ticketTools{
-  float: right;/* top: 50px; */
-  margin-top: 7%;
-  z-index: 3;
-  position: relative;
-}
-
-
-.divTradeButton{
-    width:240px;
-}
-
 .leftDiv{
   border-right: 1px solid black;
 }
@@ -42,11 +18,4 @@ input{
   display: inline-block;
 }
 
-.elementActive{
-    background-color: red;
-}
-
-//:host span {
-    //color: red;
-//}
 

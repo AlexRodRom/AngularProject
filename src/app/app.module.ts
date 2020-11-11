@@ -14,6 +14,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 import { TicketService } from './ticket.service';
 import { IconComponent } from './icon/icon.component';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { IconComponent } from './icon/icon.component';
     HeaderComponent,
     Error404Component,
     WelcomeComponent,
-    IconComponent
+    IconComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
