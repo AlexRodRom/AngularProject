@@ -1,6 +1,6 @@
 import { IconComponent } from '../icon/icon.component';
 import { ProductItemComponent } from '../product-item/product-item.component';
-import { ProductObject } from './../product-object';
+import { ProductObject } from '../product-object';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { RouterLink } from '@angular/router';
