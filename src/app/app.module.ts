@@ -1,20 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { ProductsComponent } from './products/products.component';
+
 import { Route } from '@angular/compiler/src/core';
-import { HeaderComponent } from './header/header.component';
-import { Error404Component } from './error404/error404.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 
+import { AppComponent } from './app.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductsComponent } from './components/products/products.component';
+import { HeaderComponent } from './components/header/header.component';
+import { Error404Component } from './components/error404/error404.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { IconComponent } from './components/icon/icon.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
-import { ProductService } from './product.service';
-import { IconComponent } from './icon/icon.component';
-import { ProductItemComponent } from './product-item/product-item.component';
+import { ProductService } from './services/product/product.service';
+import { WindowService } from './services/window/window.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, WindowService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,10 +1,11 @@
+import { WindowService } from '../../services/window/window.service';
 import { IconComponent } from '../icon/icon.component';
 import { ProductItemComponent } from '../product-item/product-item.component';
-import { ProductObject } from '../product-object';
+import { ProductObject } from '../../interfaces/product-object';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ProductService } from '../product.service';
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-products',
@@ -12,20 +13,14 @@ import { ProductService } from '../product.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  color: string;
-  // editMode: boolean;
 
-  constructor(public productServ: ProductService, private rend: Renderer2) {
-    // this.editMode = false;
-  }
+  constructor(public productServ: ProductService, private rend: Renderer2, public windowServ: WindowService) { }
 
   ngOnInit(): void {
-    this.color = this.colorHEX();
   }
 
   showProductDetails(product: ProductObject): void{
     // alert(`Trade number ${trade.id} has been booked on ${trade.date}.`)
-    // console.log(`Trade number ${product.id} has been booked on ${product.date}.`);
   }
 
   randomColor(): string{

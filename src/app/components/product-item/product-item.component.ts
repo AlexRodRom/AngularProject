@@ -1,6 +1,6 @@
-import { ProductObject } from '../product-object';
+import { ProductObject } from '../../interfaces/product-object';
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-product-item',
@@ -10,14 +10,12 @@ import { ProductService } from '../product.service';
 export class ProductItemComponent implements OnInit {
 
   @Input() product: ProductObject;
-  // @Input() editMode: boolean;
 
   changePrice: boolean;
   productselected: ProductObject;
   constructor(public productServ: ProductService) {  }
 
   ngOnInit(): void {
-    // this.editMode = false;
     this.changePrice = false;
   }
 
@@ -40,12 +38,10 @@ export class ProductItemComponent implements OnInit {
   }
 
   showProductTools(product: ProductObject): void{
-    // this.productselected = product;
     // this.productServ.editMode = true;
   }
 
   hideProductTools(product: ProductObject): void{
-    // this.productselected = null;
     // this.productServ.editMode = false;
   }
 }

@@ -5,7 +5,8 @@
 $lightBackground: var(--lightBackground);
 
 .leftDiv{
-  border-right: 1px solid rgba(var(--lightBackgroundRGA), 0.5);;
+  border-right: 1px solid rgba(var(--lightBackgroundRGA), 0.5);
+  // display: flex;
 }
 
 .tradeButton{

@@ -10,17 +10,18 @@
           <span> Loading...</span>
       </div>
       <div *ngIf="!(productServ.loading)" [ngClass]="{'row': true}">
-        <div [ngClass]="{'col-lg-2':true, 'leftDiv':true}" >
-          <div>
+        <div [ngClass]="{'col-12':true, 'col-lg-2':true, 'leftDiv':true}" >
+          <div [ngClass]="{}">
             <Button [ngClass]="{'tradeButton':true, 'btn':true, 'btn-success':true}"  (click)="productServ.switchEditMode()">Edit Mode</Button>
           </div>
-          <div *ngIf="productServ.editMode">
+          <div *ngIf="productServ.editMode"  [ngClass]="{}">
             <Button [ngClass]="{'tradeButton':true, 'btn':true, 'btn-success':true}"  (click)="addNewProduct()">Add Product</Button>
           </div>
         </div>
-        <div [ngClass]="{'col-lg-10':true}">
+        <div [ngClass]="{'col-12':true, 'col-lg-10':true}">
+          <div class="alert alert-warning">{{windowServ.innerWidth}}</div>
           <div *ngFor="let product of productServ.products; let i = index; first as first; last as last"
-          [ngClass]="{'col-lg-2':true, 'btn':true, 'btn-primary':true, 'tradeButton':true}">
+          [ngClass]="{'col-lg-2':true, 'col-12':true, 'btn':true, 'btn-primary':true, 'tradeButton':true}">
             <!-- Looping for each product -->
             <app-product-item [product]="product"></app-product-item>
           </div>

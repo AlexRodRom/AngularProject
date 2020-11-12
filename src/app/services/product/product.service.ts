@@ -1,4 +1,4 @@
-import { ProductObject } from './product-object';
+import { ProductObject } from '../../interfaces/product-object';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 

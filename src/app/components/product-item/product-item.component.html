@@ -1,12 +1,12 @@
 <div [ngClass]="{'row': true}"  [ngStyle]="{'justify-content': 'center'}" (mouseleave)="hideProductTools(product)" (mouseenter)="showProductTools(product)">
 
-  <div *ngIf="!changePrice" [ngClass]="{'col-lg-12': true}">
+  <div *ngIf="!changePrice" [ngClass]="{'col-lg-12': true, 'col-8': true}">
     <img src="{{ product.urlImage }}" alt="{{ product.description }}" [routerLink]="['/product-details', product._id]"  width="100" height="100">
     <div [ngClass]="{'row': true, 'mt-1': true}">
-      <span [ngClass]="{'col-lg-6': true}" >{{product.price | currency }}</span>
+      <span [ngClass]="{'col-lg-6': true, 'col-8': true}" >{{product.price | currency }}</span>
       <!-- <span [routerLink]="['/product-details', product._id]">{{product.id}}</span> -->
       <!-- <div  [ngClass]="{'col-lg-4': true}" *ngIf="product===productselected"> -->
-      <div [ngClass]="{'col-lg-4': true, 'buttonsIndex':true}" *ngIf="productServ.editMode">
+      <div [ngClass]="{'col-lg-4': true, 'col-4': true, 'buttonsIndex':true}" *ngIf="productServ.editMode">
         <app-icon (click)="changePrice=true" [iconName]="'pencil'" ></app-icon>
         <app-icon (click)="deleteProduct(product)" [iconName]="'trash'" ></app-icon>
       </div>
@@ -15,7 +15,7 @@
   <div *ngIf="changePrice" [ngClass]="{'col-lg-12': true}">
     <img src="{{ product.urlImage }}" alt="{{ product.description }}" width="100" height="100">
     <div [ngClass]="{'productTools': true, 'row': true, 'mt-1': true}">
-      <input [ngClass]="{'col-lg-7': true}" type="text" #updateId placeholder="{{product.price | currency}}">
+      <input [ngClass]="{'col-lg-7': true, 'col-6': true}" type="text" #updateId placeholder="{{product.price | currency}}">
       <div [ngClass]="{'mt-1': true}">
         <app-icon (click)="updateProduct(product, updateId.value)" [iconName]="'plus-square'"></app-icon>
         <app-icon (click)="changePrice = false" [iconName]="'x-circle'"></app-icon>
