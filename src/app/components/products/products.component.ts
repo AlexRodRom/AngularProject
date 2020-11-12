@@ -20,7 +20,6 @@ export class ProductsComponent implements OnInit {
   }
 
   showProductDetails(product: ProductObject): void{
-    // alert(`Trade number ${trade.id} has been booked on ${trade.date}.`)
   }
 
   randomColor(): string{
