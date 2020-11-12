@@ -1,18 +1,43 @@
 span{
-  display: inline-block;
-  font-size: 30px;
+  display: flex;
+  font-size: 14px;
+}
+
+img{
+  border-radius:10px;
 }
 
 input{
   display: inline-block;
-  font-size: 20px;
-  margin-top: 5px;
-  margin-bottom:5px;
+  font-size: 14px;
+  margin-left: 2px;
+  border-radius: 10px;
+  border-style: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.buttonsIndex{
+  z-index:3;
+  position: relative;
 }
 
 .productTools{
-  float: right;/* top: 50px; */
-  margin-top: 7%;
-  z-index: 3;
-  position: relative;
+//   float: right;/* top: 50px; */
+//   margin-top: 7%;
+//   z-index: 3;
+//   position: relative;
+  justify-content: center;
+  max-height: 24px;
+ }
+
+
+.tradeButton{
+  //background-color: rgba($color: $lightBackground, $alpha: 0.2);
+  //color: rgba($color: $lightBackground, $alpha: 1);
+  border: 1px solid black;
+  border-radius:10px;
+  margin:5px;
+  text-align: center;
+  display: inline-block;
 }

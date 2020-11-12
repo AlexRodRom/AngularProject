@@ -1,16 +1,25 @@
-<div (mouseleave)="hideProductTools(product)" (mouseenter)="showProductTools(product)">
-  <div *ngIf="!editProduct">
-    <span [routerLink]="['/product-details', product._id]">{{product.id}}</span>
-    <div class="productTools" *ngIf="product===productselected">
-      <app-icon (click)="editProduct=true" [iconName]="'pencil'" ></app-icon>
-      <app-icon (click)="deleteProduct(product)" [iconName]="'trash'" ></app-icon>
+<div [ngClass]="{'row': true}"  [ngStyle]="{'justify-content': 'center'}" (mouseleave)="hideProductTools(product)" (mouseenter)="showProductTools(product)">
+
+  <div *ngIf="!changePrice" [ngClass]="{'col-lg-12': true}">
+    <img src="{{ product.urlImage }}" alt="{{ product.description }}" [routerLink]="['/product-details', product._id]"  width="100" height="100">
+    <div [ngClass]="{'row': true, 'mt-1': true}">
+      <span [ngClass]="{'col-lg-6': true}" >{{product.price | currency }}</span>
+      <!-- <span [routerLink]="['/product-details', product._id]">{{product.id}}</span> -->
+      <!-- <div  [ngClass]="{'col-lg-4': true}" *ngIf="product===productselected"> -->
+      <div [ngClass]="{'col-lg-4': true, 'buttonsIndex':true}" *ngIf="productServ.editMode">
+        <app-icon (click)="changePrice=true" [iconName]="'pencil'" ></app-icon>
+        <app-icon (click)="deleteProduct(product)" [iconName]="'trash'" ></app-icon>
+      </div>
     </div>
   </div>
-  <div *ngIf="editProduct">
-    <input [ngClass]="{'col-lg-8': true}" type="text" #updateId>
-    <div class="productTools">
-      <app-icon (click)="updateProduct(product, updateId.value)" [iconName]="'plus-square'"></app-icon>
-      <app-icon (click)="editProduct = false" [iconName]="'x-circle'"></app-icon>
+  <div *ngIf="changePrice" [ngClass]="{'col-lg-12': true}">
+    <img src="{{ product.urlImage }}" alt="{{ product.description }}" width="100" height="100">
+    <div [ngClass]="{'productTools': true, 'row': true, 'mt-1': true}">
+      <input [ngClass]="{'col-lg-7': true}" type="text" #updateId placeholder="{{product.price | currency}}">
+      <div [ngClass]="{'mt-1': true}">
+        <app-icon (click)="updateProduct(product, updateId.value)" [iconName]="'plus-square'"></app-icon>
+        <app-icon (click)="changePrice = false" [iconName]="'x-circle'"></app-icon>
+      </div>
     </div>
   </div>
 </div>

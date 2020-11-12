@@ -1,5 +1,5 @@
 <div [ngClass]="{container: true}">
-  <div [ngClass]="{'row': true}" [ngStyle]="{'justify-content': 'center'}">
+  <div>
       <div *ngIf="productServ.httpError" >
           <div class="alert alert-warning">
           HTTP Error - {{productServ.httpError.status}}
@@ -12,11 +12,15 @@
       <div *ngIf="!(productServ.loading)" [ngClass]="{'row': true}">
         <div [ngClass]="{'col-lg-2':true, 'leftDiv':true}" >
           <div>
+            <Button [ngClass]="{'tradeButton':true, 'btn':true, 'btn-success':true}"  (click)="productServ.switchEditMode()">Edit Mode</Button>
+          </div>
+          <div *ngIf="productServ.editMode">
             <Button [ngClass]="{'tradeButton':true, 'btn':true, 'btn-success':true}"  (click)="addNewProduct()">Add Product</Button>
           </div>
         </div>
         <div [ngClass]="{'col-lg-10':true}">
-          <div *ngFor="let product of productServ.products; let i = index; first as first; last as last" [ngClass]="{'col-lg-3':true, 'divTradeButton':true, 'tradeButton':true, 'btn':true, 'btn-primary':true}">
+          <div *ngFor="let product of productServ.products; let i = index; first as first; last as last"
+          [ngClass]="{'col-lg-2':true, 'btn':true, 'btn-primary':true, 'tradeButton':true}">
             <!-- Looping for each product -->
             <app-product-item [product]="product"></app-product-item>
           </div>

@@ -13,10 +13,10 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
   color: string;
-  editProduct: ProductObject;
+  // editMode: boolean;
 
   constructor(public productServ: ProductService, private rend: Renderer2) {
-    this.editProduct = null;
+    // this.editMode = false;
   }
 
   ngOnInit(): void {

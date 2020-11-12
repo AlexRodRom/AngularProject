@@ -1,8 +1,8 @@
 export interface ProductObject {
     _id?: object;
-    id: number;
-    date: Date;
-    detalle1: string;
-    detalle2: string;
-    detalle3: string;
+    id: string;
+    creationDate: Date;
+    description: string;
+    price: number;
+    urlImage: string;
 }

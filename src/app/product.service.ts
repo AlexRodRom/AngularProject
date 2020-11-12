@@ -12,10 +12,12 @@ export class ProductService {
   httpError: HttpErrorResponse;
   dataURL: string;
   loading: boolean;
+  editMode: boolean;
 
   constructor(private http: HttpClient) {
     this.dataURL = 'assets/data/';
     this.loading = true;
+    this.editMode = false;
     this.getProducts();
     /*this.products = [];
     for (let index = 8000; index < 8054; index++) {
@@ -51,7 +53,7 @@ export class ProductService {
 
   addProduct(): void{
     const dateNow = new Date();
-    const newProduct: ProductObject = {id: 8000, date: dateNow , detalle1: 'Detalle-1', detalle2: 'Detalle-2', detalle3: 'Detalle-3' };
+    const newProduct: ProductObject = {id: '8000', creationDate: dateNow , description: 'Description', price: 5.50, urlImage: 'https://img.tesco.com/Groceries/pi/727/5057753925727/IDShot_225x225.jpg' };
 
     this.http.post('http://localhost:8080/api/products/', newProduct).subscribe(
       data => { // this.products.push(newProduct);
@@ -74,5 +76,9 @@ export class ProductService {
     else{
       return false;
     }
+  }
+
+  switchEditMode(): void{
+    this.editMode = !(this.editMode);
   }
 }

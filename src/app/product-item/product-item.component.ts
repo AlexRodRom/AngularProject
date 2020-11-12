@@ -10,37 +10,42 @@ import { ProductService } from '../product.service';
 export class ProductItemComponent implements OnInit {
 
   @Input() product: ProductObject;
+  // @Input() editMode: boolean;
 
-  editProduct: boolean;
+  changePrice: boolean;
   productselected: ProductObject;
   constructor(public productServ: ProductService) {  }
 
   ngOnInit(): void {
-    this.editProduct = false;
+    // this.editMode = false;
+    this.changePrice = false;
   }
 
   deleteProduct(product: ProductObject): void{
-    if (confirm('Are you sure to delete ' + product.id + '?')) {
+    if (confirm('Are you sure to delete ' + product.description + '?')) {
       this.productServ.deleteProduct(product);
     }
   }
 
-  updateProduct(product: ProductObject, newId: any): void{
+  updateProduct(product: ProductObject, newPrice: number): void{
     const updateProduct: ProductObject = {
-      id: Number(newId),
-      date: product.date,
-      detalle1: 'Det1-' + newId ,
-      detalle2: 'Det2-' + newId,
-      detalle3: 'Det3-' + newId
+      id: product.id,
+      creationDate: product.creationDate,
+      description: product.description,
+      price: newPrice,
+      urlImage: product.urlImage
     };
     this.productServ.updateProduct(product, updateProduct);
+    this.changePrice = false;
   }
 
   showProductTools(product: ProductObject): void{
-    this.productselected = product;
+    // this.productselected = product;
+    // this.productServ.editMode = true;
   }
 
   hideProductTools(product: ProductObject): void{
-    this.productselected = null;
+    // this.productselected = null;
+    // this.productServ.editMode = false;
   }
 }
