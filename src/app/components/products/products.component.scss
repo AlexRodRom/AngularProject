@@ -14,8 +14,6 @@ $lightBackground: var(--lightBackground);
 }
 
 .tradeButton{
-  //background-color: rgba($color: $lightBackground, $alpha: 0.2);
-  //color: rgba($color: $lightBackground, $alpha: 1);
   background-color: rgba(var(--lightBackgroundRGA), 0.1);
   color: rgba(var(--lightBackgroundRGA), 1);
   border: 1px solid rgba(var(--lightBackgroundRGA), 0.5);
