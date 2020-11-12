@@ -1,0 +1,24 @@
+:host{
+    width:100%;
+
+}
+
+img{
+  border-radius:10px;
+}
+
+h1{
+  color: rgba(var(--lightBackgroundRGA), 1);
+  margin-bottom: 30px;
+}
+
+.tradeButton{
+  background-color: rgba(var(--lightBackgroundRGA), 0.1);
+  color: rgba( var(--lightBackgroundRGA), 1);
+  border: 1px solid black;
+  border-radius:10px;
+  // margin:5px;
+  padding: 10px;
+  // text-align: center;
+  display: inline-block;
+}

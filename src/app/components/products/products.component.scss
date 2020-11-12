@@ -1,0 +1,26 @@
+:host{
+  width:100%;
+}
+
+$lightBackground: var(--lightBackground);
+
+.leftDiv{
+  border-right: 1px solid rgba(var(--lightBackgroundRGA), 0.5);
+  display: inline-block;
+
+  @media only screen and (max-width: 992px) {
+    display: flex;
+  }
+}
+
+.tradeButton{
+  background-color: rgba(var(--lightBackgroundRGA), 0.1);
+  color: rgba(var(--lightBackgroundRGA), 1);
+  border: 1px solid rgba(var(--lightBackgroundRGA), 0.5);
+  border-radius:10px;
+  margin:5px;
+  text-align: center;
+  display: inline-block;
+}
+
+
