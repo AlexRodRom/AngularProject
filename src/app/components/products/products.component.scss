@@ -6,7 +6,11 @@ $lightBackground: var(--lightBackground);
 
 .leftDiv{
   border-right: 1px solid rgba(var(--lightBackgroundRGA), 0.5);
-  // display: flex;
+  display: inline-block;
+
+  @media only screen and (max-width: 992px) {
+    display: flex;
+  }
 }
 
 .tradeButton{
