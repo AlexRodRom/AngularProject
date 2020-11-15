@@ -1,4 +1,5 @@
-import { ProductObject } from '../../interfaces/product-object';
+import { ProductInterface } from './../../classes/product-class';
+import { Product } from '../../classes/product-class';
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
 
@@ -9,39 +10,39 @@ import { ProductService } from '../../services/product/product.service';
 })
 export class ProductItemComponent implements OnInit {
 
-  @Input() product: ProductObject;
+  @Input() product: Product;
 
   changePrice: boolean;
-  productselected: ProductObject;
+  productselected: Product;
   constructor(public productServ: ProductService) {  }
 
   ngOnInit(): void {
     this.changePrice = false;
   }
 
-  deleteProduct(product: ProductObject): void{
+  deleteProduct(product: Product): void{
     if (confirm('Are you sure to delete ' + product.description + '?')) {
       this.productServ.deleteProduct(product);
     }
   }
 
-  updateProduct(product: ProductObject, newPrice: number): void{
-    const updateProduct: ProductObject = {
-      id: product.id,
-      creationDate: product.creationDate,
-      description: product.description,
-      price: newPrice,
-      urlImage: product.urlImage
-    };
-    this.productServ.updateProduct(product, updateProduct);
-    this.changePrice = false;
+  updateProductPrice(product: Product, newPrice: number): void{
+
+    const updateProduct: ProductInterface = new Product();
+    updateProduct.price = newPrice;
+
+    if (confirm('Are you sure to update the price from ' + product.price  + ' to ' + newPrice + ' ?')) {
+      this.productServ.updateProduct(product, updateProduct);
+      this.changePrice = false;
+    }
   }
 
-  showProductTools(product: ProductObject): void{
-    // this.productServ.editMode = true;
+  addProductToCart(product: Product): void{
+
   }
 
-  hideProductTools(product: ProductObject): void{
-    // this.productServ.editMode = false;
+  removeProductFromCart(product: Product): void{
+
   }
+
 }

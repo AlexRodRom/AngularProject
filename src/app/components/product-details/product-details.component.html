@@ -1,11 +1,11 @@
-<div [ngClass]="{'row': true}">
-  <div [ngClass]="{'col-lg-12': true}">
+<div [ngClass]="{'row': true, 'contentDetails': true}">
+  <div [ngClass]="{'col-12': true}">
     <h1>{{ productSelected.description }}</h1>
   </div>
-  <div [ngClass]="{'col-lg-5': true}">
+  <div [ngClass]="{'col-5': true}">
     <img src="{{ productSelected.urlImage }}" alt="{{ productSelected.description }}" width="255" height="255">
   </div>
-  <div [ngClass]="{'col-lg-4': true, 'tradeButton':true}">
+  <div [ngClass]="{'col-7': true, 'tradeButton':true}">
     <p>Product Id: {{productSelected.id}}</p>
     <p>Creation Date: {{productSelected.creationDate | date:'yyyy-MM-dd HH:mm:ss'}}</p>
     <p>Description: {{productSelected.description}}</p>

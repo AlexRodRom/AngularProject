@@ -3,8 +3,19 @@ span{
   font-size: 14px;
 }
 
+.divGeneralItem{
+  display: flex;
+  justify-content: center;
+  background-color: var(--itemBackgroundHex);
+  height: 300px;
+  /* padding: 5px; */
+  border: 1px solid #000;
+  width:100%;
+}
+
 img{
   border-radius:10px;
+  margin-top:5px;
 }
 
 input{
@@ -17,27 +28,18 @@ input{
   margin-bottom: 2px;
 }
 
-.buttonsIndex{
-  z-index:3;
-  position: relative;
-}
-
 .productTools{
-//   float: right;/* top: 50px; */
-//   margin-top: 7%;
-//   z-index: 3;
-//   position: relative;
   justify-content: center;
   max-height: 24px;
  }
 
+// .tradeButton{
+//   background-color: var(--itemBackgroundRGA100);
+//   color: var(--bodyColorRGA70);
+//   border: 1px solid var(--bodyColorRGA30);
+//   //border-radius:10px;
+//   margin:5px;
+//   text-align: center;
+//   display: inline-block;
+// }
 
-.tradeButton{
-  //background-color: rgba($color: $lightBackground, $alpha: 0.2);
-  //color: rgba($color: $lightBackground, $alpha: 1);
-  border: 1px solid black;
-  border-radius:10px;
-  margin:5px;
-  text-align: center;
-  display: inline-block;
-}

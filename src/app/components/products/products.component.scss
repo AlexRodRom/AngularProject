@@ -4,23 +4,60 @@
 
 $lightBackground: var(--lightBackground);
 
-.leftDiv{
-  border-right: 1px solid rgba(var(--lightBackgroundRGA), 0.5);
-  display: inline-block;
+.pt-30{
+  padding-top: 30px;
+  // border-right: 1px solid var(--itemColorRGA30);
+  //display: inline-block;
+  padding-top: 30px;
+  min-height: 1000px;
+  padding: 0px 10px 0px 10px;
+  margin:auto;
+}
 
+.sideMenu{
+  border-right: 1px solid var(--itemColorRGA30);
+  border-left: 1px solid var(--itemColorRGA30);
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 60px;
+  left:70%;
+  //background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  @media only screen and (max-width: 992px) {
+    display: flex;
+  }
+}
+
+.leftSideMenu{
+  border-right: 1px solid var(--itemColorRGA30);
+  border-left: 1px solid var(--itemColorRGA30);
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 60px;
+  left: 15%;
+  overflow-x: hidden;
+  padding-top: 20px;
   @media only screen and (max-width: 992px) {
     display: flex;
   }
 }
 
 .tradeButton{
-  background-color: rgba(var(--lightBackgroundRGA), 0.1);
-  color: rgba(var(--lightBackgroundRGA), 1);
-  border: 1px solid rgba(var(--lightBackgroundRGA), 0.5);
-  border-radius:10px;
-  margin:5px;
-  text-align: center;
   display: inline-block;
+  padding: 5px;
+
 }
+
+.cartList{
+  display: inline-flex;
+  padding: 5px;
+
+}
+
 
 

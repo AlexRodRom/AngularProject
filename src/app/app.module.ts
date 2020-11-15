@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { Route } from '@angular/compiler/src/core';
 
@@ -16,6 +17,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 
 import { ProductService } from './services/product/product.service';
 import { WindowService } from './services/window/window.service';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { WindowService } from './services/window/window.service';
     Error404Component,
     WelcomeComponent,
     IconComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ProductService, WindowService],
   bootstrap: [AppComponent],
