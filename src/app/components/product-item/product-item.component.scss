@@ -23,7 +23,8 @@ input{
   font-size: 14px;
   margin-left: 2px;
   border-radius: 10px;
-  border-style: none;
+  border: 1px solid var(--itemColorRGA30);;
+  // border-style: none;
   margin-top: 2px;
   margin-bottom: 2px;
 }
@@ -32,6 +33,20 @@ input{
   justify-content: center;
   max-height: 24px;
  }
+
+ .topInfo{
+  min-height:230px;
+}
+
+.cartButton {
+  display: inline-flex;
+  position: relative;
+  bottom: 0px;
+  /*top: 20px;*/
+  // left: 10px;
+  font-size: 12px;
+  padding: 0px;
+}
 
 // .tradeButton{
 //   background-color: var(--itemBackgroundRGA100);

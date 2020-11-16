@@ -1,7 +1,10 @@
 <div  [ngClass]="{'divGeneralItem':true}">
   <div [ngClass]="{'col-lg-12': true, 'col-8': true}">
-    <img src="{{ product.urlImage }}" alt="{{ product.description }}" [routerLink]="['/product-details', product._id]"  width="135" height="135">
-    <span [ngClass]="{'col-lg-12': true, 'col-12': true}" >{{product.name }}</span>
+    <div class="topInfo">
+      <img src="{{ product.urlImage }}" alt="{{ product.description }}" [routerLink]="['/product-details', product._id]"  width="135" height="135">
+      <span [ngClass]="{'col-lg-12': true, 'col-12': true}" >{{product.name }}</span>
+
+    </div>
     <div *ngIf="!changePrice" [ngClass]="{'row': true, 'mt-1': true}">
       <span [ngClass]="{'col-lg-6': true, 'col-6': true}" >{{product.price | currency }}</span>
       <div [ngClass]="{'col-lg-6': true, 'col-6': true }" *ngIf="productServ.editMode">
@@ -16,10 +19,16 @@
         <app-icon (click)="changePrice = false" [iconName]="'x-circle'"></app-icon>
       </div>
     </div>
-    <div [ngClass]="{'col-lg-12': true, 'col-12': true}">
-      <div [ngClass]="{'mt-1': true}">
-        <app-icon (click)="productServ.addProductToCart(product)" [iconName]="'plus-square'" [ngClass]="{'add': true}"></app-icon>
-        <app-icon (click)="productServ.removeProductFromCart(product)" [iconName]="'x-circle'" [ngClass]="{'remove': true}"></app-icon>
+    <div [ngClass]="{'col-lg-12': true, 'col-12': true, 'p-0':true}">
+      <div [ngClass]="{'m-1':true,'btn':true, 'btn-info':true ,'add': true,'col-lg-5': true, 'col-5': true, 'cartButton': true}"
+      (click)="productServ.addProductToCart(product)" >
+        <app-icon [iconName]="'plus-square'"></app-icon>
+        <span> Add</span>
+      </div>
+      <div [ngClass]="{'btn':true, 'btn-danger':true,'remove': true,'col-lg-6': true, 'col-6': true, 'cartButton': true}"
+      (click)="productServ.removeProductFromCart(product)" >
+        <app-icon [iconName]="'x-circle'"></app-icon>
+        <span> Remove</span>
       </div>
     </div>
   </div>
