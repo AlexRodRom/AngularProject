@@ -1,4 +1,4 @@
-import { ProductObject } from '../../interfaces/product-object';
+import { Product } from '../../classes/product-class';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
@@ -29,7 +29,7 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  filterTickedById(product: ProductObject): any{
+  filterTickedById(product: Product): any{
     return product._id === this;
   }
 

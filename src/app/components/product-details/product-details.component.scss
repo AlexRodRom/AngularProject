@@ -12,9 +12,20 @@ h1{
   margin-bottom: 30px;
 }
 
+.contentDetails {
+  display: flex;
+  margin: 0px auto 0px;
+  padding: 0 16px;
+  max-width: 60%;
+  min-width: 500px;
+  /* flex-direction: column; */
+  // align-items: center;
+
+}
+
 .tradeButton{
-  background-color: rgba(var(--lightBackgroundRGA), 0.1);
-  color: rgba( var(--lightBackgroundRGA), 1);
+  background-color: var(--lightBackgroundRGA100);
+  color: var(--lightBackgroundRGA);
   border: 1px solid black;
   border-radius:10px;
   // margin:5px;
@@ -22,3 +33,4 @@ h1{
   // text-align: center;
   display: inline-block;
 }
+

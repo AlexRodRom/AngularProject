@@ -3,8 +3,19 @@ span{
   font-size: 14px;
 }
 
+.divGeneralItem{
+  display: flex;
+  justify-content: center;
+  background-color: var(--itemBackgroundHex);
+  height: 300px;
+  /* padding: 5px; */
+  border: 1px solid #000;
+  width:100%;
+}
+
 img{
   border-radius:10px;
+  margin-top:5px;
 }
 
 input{
@@ -12,32 +23,38 @@ input{
   font-size: 14px;
   margin-left: 2px;
   border-radius: 10px;
-  border-style: none;
+  border: 1px solid var(--itemColorRGA30);;
+  // border-style: none;
   margin-top: 2px;
   margin-bottom: 2px;
 }
 
-.buttonsIndex{
-  z-index:3;
-  position: relative;
-}
-
 .productTools{
-//   float: right;/* top: 50px; */
-//   margin-top: 7%;
-//   z-index: 3;
-//   position: relative;
   justify-content: center;
   max-height: 24px;
  }
 
-
-.tradeButton{
-  //background-color: rgba($color: $lightBackground, $alpha: 0.2);
-  //color: rgba($color: $lightBackground, $alpha: 1);
-  border: 1px solid black;
-  border-radius:10px;
-  margin:5px;
-  text-align: center;
-  display: inline-block;
+ .topInfo{
+  min-height:230px;
 }
+
+.cartButton {
+  display: inline-flex;
+  position: relative;
+  bottom: 0px;
+  /*top: 20px;*/
+  // left: 10px;
+  font-size: 12px;
+  padding: 0px;
+}
+
+// .tradeButton{
+//   background-color: var(--itemBackgroundRGA100);
+//   color: var(--bodyColorRGA70);
+//   border: 1px solid var(--bodyColorRGA30);
+//   //border-radius:10px;
+//   margin:5px;
+//   text-align: center;
+//   display: inline-block;
+// }
+

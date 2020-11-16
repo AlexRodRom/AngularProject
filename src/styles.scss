@@ -1,9 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --lightBackground : #007bff;
-  --lightBackgroundRGA : 0, 123, 255;
+
+  // Body SCSS Color Variables
+  --bodyBackgroundHex: #f6f6f6;
+  --bodyBackgroundRGA: 246, 246, 246;
+  --bodyBackgroundRGA100: rgba(var(--bodyBackgroundRGA), 1);
+  --bodyBackgroundRGA50: rgba(var(--bodyBackgroundRGA), 0.5);
+
+  --bodyColorHex: #000000;
+  --bodyColorRGA: 0, 0, 0;
+  --bodyColorRGA100:rgba( var(--bodyColorRGA), 1);
+  --bodyColorRGA70: rgba(var(--bodyColorRGA), 0.7);
+
+  // Items SCSS Color Variables
+  --itemBackgroundHex: #ffffff;
+  --itemBackgroundRGA: 255, 255, 255;
+  --itemBackgroundRGA100: rgba(var(--itemBackgroundRGA), 1);
+  --itemBackgroundRGA30: rgba(var(--itemBackgroundRGA), 0.3);
+
+  --itemColorHex: #000000;
+  --itemColorRGA: 0, 0, 0;
+  --itemColorRGA100: rgba(var(--itemColorRGA), 1);
+  --itemColorRGA30: rgba(var(--itemColorRGA), 0.3);
 }
 
 body{
     margin:0px;
+    background-color: var(--bodyBackgroundHex) !important;
 }

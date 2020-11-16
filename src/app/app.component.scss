@@ -53,16 +53,17 @@
 
   .page{
     z-index:1;
-    margin-top: 80px;
+    margin-top: 60px;
     margin-left:20px;
     margin-right:20px;
   }
 
   .content {
     display: flex;
-    margin: 82px auto 32px;
+    margin: 60px auto 32px;
     padding: 0 16px;
-    max-width: 960px;
+    //max-width: 960px;
+    max-width: 60%;
     min-width: 500px;
     flex-direction: column;
     align-items: center;

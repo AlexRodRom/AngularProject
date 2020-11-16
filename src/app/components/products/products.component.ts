@@ -1,11 +1,13 @@
-import { WindowService } from '../../services/window/window.service';
-import { IconComponent } from '../icon/icon.component';
-import { ProductItemComponent } from '../product-item/product-item.component';
-import { ProductObject } from '../../interfaces/product-object';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Renderer2, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { IconComponent } from '../icon/icon.component';
+import { HttpErrorResponse } from '@angular/common/http';
+
+import { ProductItemComponent } from '../product-item/product-item.component';
+import { Product } from '../../classes/product-class';
 import { ProductService } from '../../services/product/product.service';
+import { WindowService } from '../../services/window/window.service';
 
 @Component({
   selector: 'app-products',
@@ -14,12 +16,16 @@ import { ProductService } from '../../services/product/product.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(public productServ: ProductService, private rend: Renderer2, public windowServ: WindowService) { }
+  model: Product;
+  editMode: boolean;
+  constructor(public productServ: ProductService, private rend: Renderer2, public windowServ: WindowService) {
+    this.model = new Product();
+  }
 
   ngOnInit(): void {
   }
 
-  showProductDetails(product: ProductObject): void{
+  showProductDetails(product: Product): void{
     // alert(`Trade number ${trade.id} has been booked on ${trade.date}.`)
   }
 
@@ -42,13 +48,14 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  addProduct(product: ProductObject): void{
+  addProduct(product: Product): void{
     this.productServ.addProducts(product);
     console.log(this.productServ.products);
   }
 
-  addNewProduct(): void{
-    this.productServ.addProduct();
+  onSubmit(form: NgForm): void {
+    console.log(form.value);
+    this.productServ.addProduct(form.value);
   }
 
 }

@@ -1,4 +1,5 @@
-import { ProductObject } from '../../interfaces/product-object';
+import { ProductInterface } from './../../classes/product-class';
+import { Product } from '../../classes/product-class';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
@@ -8,7 +9,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class ProductService {
 
-  products: Array<ProductObject>;
+  products: Array<Product>;
+  cart: Array<Product>;
   httpError: HttpErrorResponse;
   dataURL: string;
   loading: boolean;
@@ -18,24 +20,18 @@ export class ProductService {
     this.dataURL = 'assets/data/';
     this.loading = true;
     this.editMode = false;
+    this.cart = [];
     this.getProducts();
-    /*this.products = [];
-    for (let index = 8000; index < 8054; index++) {
-      let id = index+1;
-      this.products.push({id:id,date: new Date(),detalle1:'detalle1-('+id+')',detalle2:'detalle2-('+id+')',detalle3:'detalle3-('+id+')'});
-    }*/
   }
 
   getProducts(): void{
-    // this.http.get<any>(this.dataURL + 'products.json').subscribe(
     this.http.get<any>('http://localhost:8080/api/products').subscribe(
       data => { this.products = data; this.loading = false; },
       data => { this.httpError = data; }
     );
   }
 
-  deleteProduct(product: ProductObject): void{
-    // this.http.get<any>(this.dataURL + 'products.json').subscribe(
+  deleteProduct(product: Product): void{
     this.http.delete('http://localhost:8080/api/products/' + product._id).subscribe(
       data => {
       const index: number = this.products.indexOf(product);
@@ -47,13 +43,13 @@ export class ProductService {
     );
   }
 
-  addProducts(product: ProductObject): void{
+  addProducts(product: Product): void{
     this.products.push(product);
   }
 
-  addProduct(): void{
-    const dateNow = new Date();
-    const newProduct: ProductObject = {id: '8000', creationDate: dateNow , description: 'Description', price: 5.50, urlImage: 'https://img.tesco.com/Groceries/pi/727/5057753925727/IDShot_225x225.jpg' };
+  addProduct(newProduct: Product): void{
+
+    newProduct.creationDate = new Date();
 
     this.http.post('http://localhost:8080/api/products/', newProduct).subscribe(
       data => { // this.products.push(newProduct);
@@ -62,8 +58,8 @@ export class ProductService {
     );
   }
 
-  updateProduct(Product: ProductObject, updateProduct: ProductObject): void{
-    this.http.put('http://localhost:8080/api/products/' + Product._id, updateProduct ).subscribe(
+  updateProduct(product: Product, updateProduct: ProductInterface): void{
+    this.http.put('http://localhost:8080/api/products/' + product._id, updateProduct ).subscribe(
       data => { this.getProducts(); },
       data => { this.httpError = data; }
     );
@@ -81,4 +77,15 @@ export class ProductService {
   switchEditMode(): void{
     this.editMode = !(this.editMode);
   }
+
+  addProductToCart(newProduct: Product): void{
+    this.cart.push(newProduct);
+  }
+  removeProductFromCart(newProduct: Product): void{
+    const index: number = this.cart.indexOf(newProduct);
+    if (index !== -1) {
+      this.cart.splice(index, 1);
+    }
+  }
 }
+
