@@ -6,7 +6,7 @@
 
     </div>
     <div *ngIf="!changePrice" [ngClass]="{'row': true, 'mt-1': true}">
-      <span [ngClass]="{'col-lg-6': true, 'col-6': true}" >{{product.price | currency }}</span>
+      <span [ngClass]="{'col-lg-6': true, 'col-6': true}" ><strong>{{product.price | currency }}</strong></span>
       <div [ngClass]="{'col-lg-6': true, 'col-6': true }" *ngIf="productServ.editMode">
         <app-icon (click)="changePrice=true" [iconName]="'pencil'" ></app-icon>
         <app-icon (click)="deleteProduct(product)" [iconName]="'trash'" ></app-icon>

@@ -8,7 +8,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent , pathMatch: 'full'},
-  { path: 'product-details', component: ProductDetailsComponent },
+  // { path: 'product-details', component: ProductDetailsComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'page_not_found', component: Error404Component },
