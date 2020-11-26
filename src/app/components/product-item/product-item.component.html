@@ -1,6 +1,6 @@
-<div  [ngClass]="{'divGeneralItem':true}">
+<div *ngIf="!cart"  [ngClass]="{'divGeneralItem':true}">
   <div [ngClass]="{'col-lg-12': true, 'col-8': true}">
-    <div class="topInfo">
+    <div [ngClass]="{'topInfo':true}">
       <img src="{{ product.urlImage }}" alt="{{ product.description }}" [routerLink]="['/product-details', product._id]"  width="135" height="135">
       <span [ngClass]="{'col-lg-12': true, 'col-12': true}" >{{product.name }}</span>
 
@@ -26,6 +26,32 @@
         <span> Add</span>
       </div>
       <div [ngClass]="{'btn':true, 'btn-danger':true,'remove': true,'col-lg-6': true, 'col-6': true, 'cartButton': true}"
+      (click)="productServ.removeProductFromCart(product)" >
+        <app-icon [iconName]="'x-circle'"></app-icon>
+        <span> Remove</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="cart"  [ngClass]="{'divGeneralItem':true, 'cart':true}">
+  <div [ngClass]="{'col-lg-12': true, 'col-8': true}">
+    <div [ngClass]="{'topInfo':true ,'cart':true}">
+      <img src="{{ product.urlImage }}" alt="{{ product.description }}" [routerLink]="['/product-details', product._id]"  width="90" height="90">
+      <span [ngClass]="{'col-lg-8': true, 'col-12': true, 'mt-2': true, 'mr-2': true}" >{{product.name }}</span>
+
+    </div>
+    <div *ngIf="!changePrice" [ngClass]="{'row': true, 'mt-1': true}">
+
+    </div>
+    <div [ngClass]="{'col-lg-12': true, 'col-12': true, 'p-0':true}" [ngStyle]="{'display': 'flex'}">
+      <span [ngClass]="{'col-lg-4': true, 'col-6': true}" ><strong>{{product.price | currency }}</strong></span>
+      <div [ngClass]="{'m-1':true,'btn':true, 'btn-info':true ,'add': true,'col-lg-3': true, 'col-5': true, 'cartButton': true}"
+      (click)="productServ.addProductToCart(product)" >
+        <app-icon [iconName]="'plus-square'"></app-icon>
+        <span> Add</span>
+      </div>
+      <div [ngClass]="{'m-1':true, 'btn':true, 'btn-danger':true,'remove': true,'col-lg-5': true, 'col-6': true, 'cartButton': true}"
       (click)="productServ.removeProductFromCart(product)" >
         <app-icon [iconName]="'x-circle'"></app-icon>
         <span> Remove</span>

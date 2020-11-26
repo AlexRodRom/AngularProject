@@ -11,6 +11,7 @@ import { ProductService } from '../../services/product/product.service';
 export class ProductItemComponent implements OnInit {
 
   @Input() product: Product;
+  @Input() cart: boolean;
 
   changePrice: boolean;
   productselected: Product;
@@ -36,13 +37,4 @@ export class ProductItemComponent implements OnInit {
       this.changePrice = false;
     }
   }
-
-  addProductToCart(product: Product): void{
-
-  }
-
-  removeProductFromCart(product: Product): void{
-
-  }
-
 }

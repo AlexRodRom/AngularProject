@@ -1,8 +1,10 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit, Renderer2, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { IconComponent } from '../icon/icon.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { fromEvent } from 'rxjs';
 
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { Product } from '../../classes/product-class';
@@ -16,6 +18,7 @@ import { WindowService } from '../../services/window/window.service';
 })
 export class ProductsComponent implements OnInit {
 
+  products: Array<Product> = [];
   model: Product;
   editMode: boolean;
   constructor(public productServ: ProductService, private rend: Renderer2, public windowServ: WindowService) {
@@ -23,6 +26,18 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.getProducts();
+
+  }
+
+  // Service API Connection
+  getProducts(): void {
+    this.productServ.getProducts().subscribe({
+      next: products => { this.products = products; this.productServ.loading = false; },
+      error: err => console.log(`Oops... ${err}`),
+      complete: () => console.log(`getProducts() Complete!`),
+    });
   }
 
   showProductDetails(product: Product): void{
@@ -57,5 +72,4 @@ export class ProductsComponent implements OnInit {
     console.log(form.value);
     this.productServ.addProduct(form.value);
   }
-
 }

@@ -3,7 +3,7 @@ span{
   font-size: 14px;
 }
 
-.divGeneralItem{
+.divGeneralItem {
   display: flex;
   justify-content: center;
   background-color: var(--itemBackgroundHex);
@@ -11,6 +11,10 @@ span{
   /* padding: 5px; */
   border: 1px solid #000;
   width:100%;
+}
+
+.divGeneralItem.cart{
+  height: 140px;
 }
 
 img{
@@ -36,6 +40,11 @@ input{
 
  .topInfo{
   min-height:230px;
+}
+
+.topInfo.cart{
+  display: flex;
+  min-height: 100px;
 }
 
 .cartButton {
