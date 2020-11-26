@@ -11,6 +11,7 @@ import { ProductService } from '../../services/product/product.service';
 export class ProductItemComponent implements OnInit {
 
   @Input() product: Product;
+  @Input() cart: boolean;
 
   changePrice: boolean;
   productselected: Product;

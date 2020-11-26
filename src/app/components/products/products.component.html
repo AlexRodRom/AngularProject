@@ -12,7 +12,7 @@
     <div *ngIf="!(productServ.loading)" [ngClass]="{'row': true}">
       <div [ngClass]="{'col-12':true, 'col-lg-2':true, 'leftSideMenu':true}" >
         <div [ngClass]="{}">
-          <Button [ngClass]="{'btn':true, 'btn-success':true}"  (click)="productServ.switchEditMode()">Edit Mode</Button>
+          <Button [ngClass]="{'btn':true, 'btn-success':true}" id="editModeButton"  (click)="productServ.switchEditMode()">Edit Mode</Button>
         </div>
         <div *ngIf="productServ.editMode">
           <app-form></app-form>
@@ -21,7 +21,7 @@
       <div [ngClass]="{'col-12':true, 'col-lg-8':true, 'pt-30':true}">
         <!-- <div class="alert alert-warning col-12">{{windowServ.innerWidth}}</div> -->
           <div class="alert alert-info col-12">Products</div>
-          <app-product-item  *ngFor="let product of productServ.products; let i = index; first as first; last as last"
+          <app-product-item [cart]="false" *ngFor="let product of products; let i = index; first as first; last as last"
           [ngClass]="{'col-12':true, 'col-lg-3':true, 'tradeButton':true}" [product]="product"></app-product-item>
       </div>
       <div [ngClass]="{'col-lg-2':true, 'col-2':true, 'sideMenu':true}">
@@ -29,7 +29,7 @@
           <app-icon [iconName]="'cart3'"></app-icon>
          <span>Shopping List</span>
         </div>
-        <app-product-item  *ngFor="let product of productServ.cart; let i = index; first as first; last as last"
+        <app-product-item [cart]="true" *ngFor="let product of productServ.cart; let i = index; first as first; last as last"
           [ngClass]="{'col-12':true, 'col-lg-12':true, 'cartList':true}" [product]="product"></app-product-item>
       </div>
     </div>

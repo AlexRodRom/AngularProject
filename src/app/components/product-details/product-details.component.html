@@ -1,21 +1,21 @@
-<div [ngClass]="{'row': true, 'contentDetails': true}">
+<div *ngIf="productSelected" [ngClass]="{'row': true, 'contentDetails': true}">
   <div [ngClass]="{'col-12': true}">
-    <h1>{{ productSelected.description }}</h1>
+    <h1>{{ productSelected.description ? productSelected.description : '' }}</h1>
   </div>
   <div [ngClass]="{'col-5': true, 'mr-5':true}">
-    <img [ngClass]="{'m-1':true}" src="{{ productSelected.urlImage }}" alt="{{ productSelected.description }}" width="255" height="255"/>
+    <img [ngClass]="{'m-1':true}" src="{{ productSelected.urlImage ? productSelected.urlImage : '' }}" alt="{{ productSelected.description ? productSelected.description : '' }}" width="255" height="255"/>
   </div>
   <div [ngClass]="{'col-6': true, 'tradeButton':true}">
     <p>Name:</p>
     <p><strong>{{productSelected.name}}</strong></p>
     <p>Description:</p>
-    <p><strong>{{productSelected.description}}</strong></p>
+    <p><strong>{{ productSelected.description ? productSelected.description : '' }}</strong></p>
     <p>Price:</p>
-    <p><strong>{{productSelected.price | currency }}</strong></p>
+    <p><strong>{{ productSelected.price ? productSelected.price : 0  | currency }}</strong></p>
     <p>Product Id:</p>
-    <p><strong>{{productSelected.id}}</strong></p>
+    <p><strong>{{ productSelected.id? productSelected.id : ''}}</strong></p>
     <p>Creation Date</p>
-    <p><strong>{{productSelected.creationDate | date:'yyyy-MM-dd HH:mm:ss'}}</strong></p>
+    <p><strong>{{ productSelected.creationDate ? productSelected.creationDate : null | date:'yyyy-MM-dd HH:mm:ss'}}</strong></p>
   </div>
 </div>
 
