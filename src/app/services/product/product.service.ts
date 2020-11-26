@@ -12,6 +12,7 @@ export class ProductService {
 
   products: Array<Product>;
   cart: Array<Product>;
+  cartAmount: number;
   httpError: HttpErrorResponse;
   dataURL: string;
   loading: boolean;
@@ -24,6 +25,7 @@ export class ProductService {
     this.loading = true;
     this.editMode = false;
     this.cart = [];
+    this.cartAmount = 0;
     // this.getProducts();
   }
 
@@ -90,11 +92,13 @@ export class ProductService {
 
   addProductToCart(newProduct: Product): void{
     this.cart.push(newProduct);
+    this.cartAmount += newProduct.price;
   }
   removeProductFromCart(newProduct: Product): void{
     const index: number = this.cart.indexOf(newProduct);
     if (index !== -1) {
       this.cart.splice(index, 1);
+      this.cartAmount -= newProduct.price;
     }
   }
 }

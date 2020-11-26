@@ -22,6 +22,13 @@
   --itemColorRGA: 0, 0, 0;
   --itemColorRGA100: rgba(var(--itemColorRGA), 1);
   --itemColorRGA30: rgba(var(--itemColorRGA), 0.3);
+
+  --navbuttonColorActiveHex: #1976d2;
+  --navbuttonColorActiveRGA: 25, 118, 210;
+  --navbuttonColorActive100: rgba(var(--navbuttonColorActiveRGA), 1);
+  --navbuttonColorActive90: rgba(var(--navbuttonColorActiveRGA), 0.9);
+  --navbuttonColorActive70: rgba(var(--navbuttonColorActiveRGA), 0.7);
+  --navbuttonColorActive30: rgba(var(--navbuttonColorActiveRGA), 0.3);
 }
 
 body{

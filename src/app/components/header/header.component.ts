@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../app.component.scss', './header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor() { }
+  constructor(public productServ: ProductService) { }
   ngOnInit(): void {
   }
 }

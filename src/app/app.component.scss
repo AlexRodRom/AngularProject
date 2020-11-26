@@ -69,6 +69,14 @@
     align-items: center;
   }
 
+  @media all and (max-width: 500px) and (min-width: 300px) {
+    .content{
+      min-width: 300px;
+      margin: 0px auto 0px;
+      padding: 0 0px;
+    }
+  }
+
   svg.material-icons {
     height: 24px;
     width: auto;

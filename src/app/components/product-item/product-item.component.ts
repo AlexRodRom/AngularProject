@@ -37,13 +37,4 @@ export class ProductItemComponent implements OnInit {
       this.changePrice = false;
     }
   }
-
-  addProductToCart(product: Product): void{
-
-  }
-
-  removeProductFromCart(product: Product): void{
-
-  }
-
 }
