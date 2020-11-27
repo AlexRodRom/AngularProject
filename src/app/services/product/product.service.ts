@@ -29,14 +29,16 @@ export class ProductService {
     // this.getProducts();
   }
 
-  getProducts(): Observable<Product[]> {
+  // getProducts(): Observable<Product[]> {
 
-    return this.http.get<Product[]>(this.url);
+  //   return this.http.get<Product[]>(this.url);
+  // }
 
-    // this.http.get<Product[]>('http://localhost:8080/api/products').subscribe(
-    //   data => { this.products = data; this.loading = false; },
-    //   data => { this.httpError = data; }
-    // );
+  getProducts(): void {
+    this.http.get<Product[]>(this.url).subscribe(
+      data => { this.products = data; this.loading = false; },
+      data => { this.httpError = data; }
+    );
   }
 
   getProduct(_id: string): Observable<Product> {

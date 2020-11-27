@@ -18,7 +18,7 @@ import { WindowService } from '../../services/window/window.service';
 })
 export class ProductsComponent implements OnInit {
 
-  products: Array<Product> = [];
+  // products: Array<Product> = [];
   model: Product;
   editMode: boolean;
   constructor(public productServ: ProductService, private rend: Renderer2, public windowServ: WindowService) {
@@ -27,18 +27,18 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getProducts();
+    this.productServ.getProducts();
 
   }
 
-  // Service API Connection
-  getProducts(): void {
-    this.productServ.getProducts().subscribe({
-      next: products => { this.products = products; this.productServ.loading = false; },
-      error: err => console.log(`Oops... ${err}`),
-      complete: () => console.log(`getProducts() Complete!`),
-    });
-  }
+  // // Service API Connection
+  // getProducts(): void {
+  //   this.productServ.getProducts().subscribe({
+  //     next: products => { this.products = products; this.productServ.loading = false; },
+  //     error: err => console.log(`Oops... ${err}`),
+  //     complete: () => console.log(`getProducts() Complete!`),
+  //   });
+  // }
 
   showProductDetails(product: Product): void{
     // alert(`Trade number ${trade.id} has been booked on ${trade.date}.`)
