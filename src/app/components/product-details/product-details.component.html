@@ -5,7 +5,7 @@
   <div [ngClass]="{'col-5': true, 'mr-5':true}">
     <img [ngClass]="{'m-1':true}" src="{{ productSelected.urlImage ? productSelected.urlImage : '' }}" alt="{{ productSelected.description ? productSelected.description : '' }}" width="255" height="255"/>
   </div>
-  <div [ngClass]="{'col-6': true, 'tradeButton':true}">
+  <div [ngClass]="{'col-7 col-lg-6': true, 'tradeButton':true}">
     <p>Name:</p>
     <p><strong>{{productSelected.name}}</strong></p>
     <p>Description:</p>

@@ -18,6 +18,12 @@
         // color:$navbuttonColorActive;
         color: var(--navbuttonColorActiveHex);
     }
+
+    a.nav-link{
+      min-width: 80px;
+      text-align: center;
+    }
+
     a.nav-link.active{
         background-color: rgba(153,243,180);
         color:var(--navbuttonColorActiveHex);
@@ -25,10 +31,23 @@
         border: 1px solid black;
         border-radius: 10px;
         margin: 2px;
+        min-width: 80px;
+        text-align: center;
     }
 
     .shoppingList{
       margin-right: 5%;
+    }
+
+    @media all and (max-width: 500px) and (min-width: 300px) {
+      .collapse{
+        display:inline-flex;
+        flex-basis: auto;
+      }
+
+      .navbar-nav {
+        flex-direction: row;
+      }
     }
 }
 
