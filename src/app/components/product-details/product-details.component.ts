@@ -39,7 +39,6 @@ export class ProductDetailsComponent implements OnInit {
       error: err => console.log(`Oops... ${err}`),
       complete: () => console.log(`getProducts() Complete!`),
     });
-
   }
 
 
