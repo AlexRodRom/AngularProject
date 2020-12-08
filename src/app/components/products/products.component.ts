@@ -10,10 +10,43 @@ import { ProductItemComponent } from '../product-item/product-item.component';
 import { Product } from '../../classes/product-class';
 import { ProductService } from '../../services/product/product.service';
 import { WindowService } from '../../services/window/window.service';
+import { trigger, state, style, animate, transition, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
+  animations: [
+    trigger('productListAnimation', [
+      transition('* => *', [ // each time the binding value changes
+        query(':leave', [
+          stagger(1000, [
+            animate('2s ease-out', style({ opacity: 0 }))
+          ])
+        ], { optional: true }),
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(1000, [
+            animate('2s ease-in', style({ opacity: 1 }))
+          ])
+        ], { optional: true })
+      ])
+    ]),
+    trigger('cartListAnimation', [
+      transition('* => *', [ // each time the binding value changes
+        query(':leave', [
+          stagger(200, [
+            animate('0.5s ease-out', style({ opacity: 0 }))
+          ])
+        ], { optional: true }),
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(200, [
+            animate('1s ease-in', style({ opacity: 1 }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ],
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {

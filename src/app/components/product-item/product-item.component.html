@@ -34,7 +34,7 @@
   </div>
 </div>
 
-<div *ngIf="cart"  [ngClass]="{'divGeneralItem':true, 'cart':true}">
+<div *ngIf="cart" [ngClass]="{'divGeneralItem':true, 'cart':true}">
   <div [ngClass]="{'col-lg-12': true, 'col-8': true}">
     <div [ngClass]="{'topInfo':true ,'cart':true}">
       <img src="{{ product.urlImage }}" alt="{{ product.description }}" [routerLink]="['/product-details', product._id]"  width="90" height="90">
